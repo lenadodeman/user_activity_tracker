@@ -7,7 +7,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityPublishedInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\user_activity_tracker\Service\ActivityTrackerService;
+use Drupal\user_activity_tracker\Service\UserActivityTrackerService;
 use Drupal\user_activity_tracker\TrackedAction;
 use Drupal\system\ActionConfigEntityInterface;
 use Drupal\user\RoleInterface;
@@ -17,13 +17,13 @@ use Drupal\file\FileInterface;
 /**
  * Hook implementations for the Activity Tracker module.
  */
-final class ActivityTrackerHooks {
+final class UserActivityTrackerHooks {
 
   /**
    * Constructs the hook implementations.
    */
   public function __construct(
-    private readonly ActivityTrackerService $activityTrackerService,
+    private readonly UserActivityTrackerService $activityTrackerService,
   ) {}
 
   /**

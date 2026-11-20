@@ -91,10 +91,10 @@ Saving the module's own settings also writes a separate `[TRACKER][CONFIG]` admi
 
 ## Implementation
 
-- [ActivityTrackerHooks](src/Hook/ActivityTrackerHooks.php): hooks implemented with `#[Hook(...)]`, automatically discovered and autowired by Drupal.
-- [ActivityTrackerService](src/Service/ActivityTrackerService.php): role/action filtering and logging.
+- [UserActivityTrackerHooks](src/Hook/UserActivityTrackerHooks.php): hooks implemented with `#[Hook(...)]`, automatically discovered and autowired by Drupal.
+- [UserActivityTrackerService](src/Service/UserActivityTrackerService.php): role/action filtering and logging.
 - [ConfigTrackSubscriber](src/EventSubscriber/ConfigTrackSubscriber.php): configuration event handling.
-- [ActivityTrackerSettingsForm](src/Form/ActivityTrackerSettingsForm.php): administration form.
+- [UserActivityTrackerSettingsForm](src/Form/UserActivityTrackerSettingsForm.php): administration form.
 - [TrackedAction](src/TrackedAction.php): action IDs and shared label definitions; `label()` resolves one label, while `options()` preserves lazy translation for form choices.
 
 Previous entity states use `getOriginal()` where available, with a compatibility fallback to the original property for Drupal 11.1. The module does not implement procedural hooks.
@@ -105,10 +105,10 @@ French translations are provided in [user_activity_tracker.fr.po](translations/u
 
 The repository includes:
 
-- [ActivityTrackerServiceTest](tests/src/Unit/Service/ActivityTrackerServiceTest.php): role-based filtering, account selection, and log context formatting.
+- [UserActivityTrackerServiceTest](tests/src/Unit/Service/UserActivityTrackerServiceTest.php): role-based filtering, account selection, and log context formatting.
 - [HooksTest](tests/src/Unit/Hooks/HooksTest.php): selected authentication, entity, translation, role, and file tracking cases.
 - [ConfigTrackSubscriberTest](tests/src/Unit/EventSubscriber/ConfigTrackSubscriberTest.php): save/delete context, configuration entity exclusions, and import counts.
-- [ActivityTrackerSettingsFormTest](tests/src/Unit/Form/ActivityTrackerSettingsFormTest.php): action availability and disabling role tracking.
+- [UserActivityTrackerSettingsFormTest](tests/src/Unit/Form/UserActivityTrackerSettingsFormTest.php): action availability and disabling role tracking.
 - [HookDiscoveryTest](tests/src/Kernel/HookDiscoveryTest.php): hook discovery, injection, and a single login invocation.
 - [SettingsSchemaTest](tests/src/Kernel/SettingsSchemaTest.php): configuration schema with empty selections and arbitrary role IDs.
 

@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Configure Activity Tracker settings.
  */
-class ActivityTrackerSettingsForm extends ConfigFormBase {
+class UserActivityTrackerSettingsForm extends ConfigFormBase {
 
   /**
    * The entity type manager.

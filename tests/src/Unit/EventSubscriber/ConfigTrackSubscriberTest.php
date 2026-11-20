@@ -3,7 +3,7 @@
 namespace Drupal\Tests\user_activity_tracker\Unit\EventSubscriber;
 
 use Drupal\user_activity_tracker\EventSubscriber\ConfigTrackSubscriber;
-use Drupal\user_activity_tracker\Service\ActivityTrackerService;
+use Drupal\user_activity_tracker\Service\UserActivityTrackerService;
 use Drupal\user_activity_tracker\TrackedAction;
 use Drupal\Core\Config\ConfigCrudEvent;
 use Drupal\Core\Config\ConfigImporter;
@@ -26,7 +26,7 @@ class ConfigTrackSubscriberTest extends TestCase {
    * Tests that saves do not report an unreliable creation flag.
    */
   public function testSaveContext(): void {
-    $tracker = $this->createMock(ActivityTrackerService::class);
+    $tracker = $this->createMock(UserActivityTrackerService::class);
     $manager = $this->createMock(ConfigManagerInterface::class);
     $manager->method('getEntityTypeIdByName')
       ->with('system.site')
@@ -47,7 +47,7 @@ class ConfigTrackSubscriberTest extends TestCase {
    * Tests that simple configuration deletions are tracked.
    */
   public function testDeleteContext(): void {
-    $tracker = $this->createMock(ActivityTrackerService::class);
+    $tracker = $this->createMock(UserActivityTrackerService::class);
     $manager = $this->createMock(ConfigManagerInterface::class);
     $manager->method('getEntityTypeIdByName')
       ->with('system.site')
@@ -67,7 +67,7 @@ class ConfigTrackSubscriberTest extends TestCase {
    * Tests that configuration entities are excluded from save and delete logs.
    */
   public function testEntityConfigurationIsNotTracked(): void {
-    $tracker = $this->createMock(ActivityTrackerService::class);
+    $tracker = $this->createMock(UserActivityTrackerService::class);
     $tracker->expects($this->never())->method('track');
     $manager = $this->createMock(ConfigManagerInterface::class);
     $manager->expects($this->exactly(2))
@@ -88,7 +88,7 @@ class ConfigTrackSubscriberTest extends TestCase {
    * Tests that import totals include processed operations in all collections.
    */
   public function testImportCountsProcessedOperationsAcrossCollections(): void {
-    $tracker = $this->createMock(ActivityTrackerService::class);
+    $tracker = $this->createMock(UserActivityTrackerService::class);
     $manager = $this->createMock(ConfigManagerInterface::class);
     $comparer = $this->createMock(StorageComparerInterface::class);
     $comparer->method('getAllCollectionNames')->willReturn(['', 'language.fr']);
@@ -127,7 +127,7 @@ class ConfigTrackSubscriberTest extends TestCase {
    * Tests that an import without processed configurations reports zero.
    */
   public function testImportWithoutProcessedOperations(): void {
-    $tracker = $this->createMock(ActivityTrackerService::class);
+    $tracker = $this->createMock(UserActivityTrackerService::class);
     $manager = $this->createMock(ConfigManagerInterface::class);
     $comparer = $this->createMock(StorageComparerInterface::class);
     $comparer->method('getAllCollectionNames')->willReturn(['']);

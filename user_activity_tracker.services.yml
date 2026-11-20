@@ -7,6 +7,6 @@ services:
     parent: logger.channel_base
     arguments: [ 'user_activity_tracker' ]
 
-  Drupal\user_activity_tracker\Service\ActivityTrackerService: ~
+  Drupal\user_activity_tracker\Service\UserActivityTrackerService: ~
 
   Drupal\user_activity_tracker\EventSubscriber\ConfigTrackSubscriber: ~

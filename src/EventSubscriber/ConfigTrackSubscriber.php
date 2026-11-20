@@ -6,7 +6,7 @@ use Drupal\Core\Config\ConfigCrudEvent;
 use Drupal\Core\Config\ConfigEvents;
 use Drupal\Core\Config\ConfigImporterEvent;
 use Drupal\Core\Config\ConfigManagerInterface;
-use Drupal\user_activity_tracker\Service\ActivityTrackerService;
+use Drupal\user_activity_tracker\Service\UserActivityTrackerService;
 use Drupal\user_activity_tracker\TrackedAction;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -23,13 +23,13 @@ class ConfigTrackSubscriber implements EventSubscriberInterface {
   /**
    * Constructor.
    *
-   * @param \Drupal\user_activity_tracker\Service\ActivityTrackerService $activityTrackerService
+   * @param \Drupal\user_activity_tracker\Service\UserActivityTrackerService $activityTrackerService
    *   The activity tracker service.
    * @param \Drupal\Core\Config\ConfigManagerInterface $configManager
    *   The config manager service.
    */
   public function __construct(
-    protected ActivityTrackerService $activityTrackerService,
+    protected UserActivityTrackerService $activityTrackerService,
     protected ConfigManagerInterface $configManager,
   ) {}
 

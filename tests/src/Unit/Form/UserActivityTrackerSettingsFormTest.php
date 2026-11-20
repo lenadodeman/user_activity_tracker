@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\user_activity_tracker\Unit\Form;
 
-use Drupal\user_activity_tracker\Form\ActivityTrackerSettingsForm;
+use Drupal\user_activity_tracker\Form\UserActivityTrackerSettingsForm;
 use Drupal\Core\Config\Config;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\TypedConfigManagerInterface;
@@ -25,8 +25,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  * Tests role tracking configuration through the form.
  */
 #[Group('user_activity_tracker')]
-#[CoversClass(ActivityTrackerSettingsForm::class)]
-class ActivityTrackerSettingsFormTest extends TestCase {
+#[CoversClass(UserActivityTrackerSettingsForm::class)]
+class UserActivityTrackerSettingsFormTest extends TestCase {
 
   /**
    * Tests disabling a role without clearing its selected actions.
@@ -71,7 +71,7 @@ class ActivityTrackerSettingsFormTest extends TestCase {
     \Drupal::setContainer($container);
 
     try {
-      $form = ActivityTrackerSettingsForm::create($container);
+      $form = UserActivityTrackerSettingsForm::create($container);
       $form->setStringTranslation($translation);
       $logger_factory = $this->createMock(LoggerChannelFactoryInterface::class);
       $logger_factory->method('get')->willReturn($this->createMock(LoggerChannelInterface::class));

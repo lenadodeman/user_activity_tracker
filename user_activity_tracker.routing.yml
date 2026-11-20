@@ -1,7 +1,7 @@
 user_activity_tracker.admin_settings:
   path: '/admin/config/system/activity-tracker'
   defaults:
-    _form: '\Drupal\user_activity_tracker\Form\ActivityTrackerSettingsForm'
+    _form: '\Drupal\user_activity_tracker\Form\UserActivityTrackerSettingsForm'
     _title: 'User Activity Tracker Settings'
   requirements:
     _permission: 'administer site configuration'

@@ -11,10 +11,10 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 /**
  * Service to track roles activity.
  */
-class ActivityTrackerService {
+class UserActivityTrackerService {
 
   /**
-   * Constructs an ActivityTrackerService object.
+   * Constructs an UserActivityTrackerService object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The config factory service.
@@ -25,7 +25,7 @@ class ActivityTrackerService {
    */
   public function __construct(
     protected ConfigFactoryInterface $configFactory,
-    #[Autowire(service: 'logger.channel.activity_tracker')]
+    #[Autowire(service: 'logger.channel.user_activity_tracker')]
     protected LoggerChannelInterface $logger,
     protected AccountInterface $currentUser,
   ) {}

@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\user_activity_tracker\Kernel;
 
-use Drupal\user_activity_tracker\Service\ActivityTrackerService;
+use Drupal\user_activity_tracker\Service\UserActivityTrackerService;
 use Drupal\user_activity_tracker\TrackedAction;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\KernelTests\KernelTestBase;
@@ -26,11 +26,11 @@ class HookDiscoveryTest extends KernelTestBase {
    */
   public function testUserLoginHookDiscovery(): void {
     $account = $this->createMock(AccountInterface::class);
-    $tracker = $this->createMock(ActivityTrackerService::class);
+    $tracker = $this->createMock(UserActivityTrackerService::class);
     $tracker->expects($this->once())
       ->method('track')
       ->with(TrackedAction::UserLogin, [], $account);
-    $this->container->set(ActivityTrackerService::class, $tracker);
+    $this->container->set(UserActivityTrackerService::class, $tracker);
 
     $this->container->get('module_handler')
       ->invoke('user_activity_tracker', 'user_login', [$account]);

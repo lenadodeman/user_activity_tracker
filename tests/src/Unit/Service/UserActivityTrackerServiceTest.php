@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\user_activity_tracker\Unit\Service;
 
-use Drupal\user_activity_tracker\Service\ActivityTrackerService;
+use Drupal\user_activity_tracker\Service\UserActivityTrackerService;
 use Drupal\user_activity_tracker\TrackedAction;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\ImmutableConfig;
@@ -19,8 +19,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  * Tests role-based activity tracking.
  */
 #[Group('user_activity_tracker')]
-#[CoversClass(ActivityTrackerService::class)]
-class ActivityTrackerServiceTest extends TestCase {
+#[CoversClass(UserActivityTrackerService::class)]
+class UserActivityTrackerServiceTest extends TestCase {
 
   /**
    * {@inheritdoc}
@@ -137,14 +137,14 @@ class ActivityTrackerServiceTest extends TestCase {
    * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user account.
    *
-   * @return \Drupal\user_activity_tracker\Service\ActivityTrackerService
+   * @return \Drupal\user_activity_tracker\Service\UserActivityTrackerService
    *   The activity tracker service.
    */
   private function createService(
     array $tracked_actions,
     LoggerChannelInterface $logger,
     AccountInterface $current_user,
-  ): ActivityTrackerService {
+  ): UserActivityTrackerService {
     $config = $this->createMock(ImmutableConfig::class);
     $config->method('get')
       ->with('track_role_actions')
@@ -154,7 +154,7 @@ class ActivityTrackerServiceTest extends TestCase {
       ->with('user_activity_tracker.settings')
       ->willReturn($config);
 
-    return new ActivityTrackerService($config_factory, $logger, $current_user);
+    return new UserActivityTrackerService($config_factory, $logger, $current_user);
   }
 
 }

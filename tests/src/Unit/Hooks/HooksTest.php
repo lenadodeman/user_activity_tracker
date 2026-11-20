@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\user_activity_tracker\Unit\Hooks;
 
-use Drupal\user_activity_tracker\Hook\ActivityTrackerHooks;
-use Drupal\user_activity_tracker\Service\ActivityTrackerService;
+use Drupal\user_activity_tracker\Hook\UserActivityTrackerHooks;
+use Drupal\user_activity_tracker\Service\UserActivityTrackerService;
 use Drupal\user_activity_tracker\TrackedAction;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Language\Language;
@@ -25,20 +25,20 @@ use PHPUnit\Framework\TestCase;
  * Tests for the Hooks class.
  */
 #[Group('user_activity_tracker')]
-#[CoversClass(ActivityTrackerHooks::class)]
+#[CoversClass(UserActivityTrackerHooks::class)]
 class HooksTest extends TestCase {
 
   /**
-   * The ActivityTrackerService mock.
+   * The UserActivityTrackerService mock.
    *
-   * @var \Drupal\user_activity_tracker\Service\ActivityTrackerService|\PHPUnit\Framework\MockObject\MockObject
+   * @var \Drupal\user_activity_tracker\Service\UserActivityTrackerService|\PHPUnit\Framework\MockObject\MockObject
    */
   protected $activityTrackerService;
 
   /**
    * The Hooks class instance.
    *
-   * @var \Drupal\user_activity_tracker\Hook\ActivityTrackerHooks
+   * @var \Drupal\user_activity_tracker\Hook\UserActivityTrackerHooks
    */
   protected $hooks;
 
@@ -48,8 +48,8 @@ class HooksTest extends TestCase {
   protected function setUp(): void {
     parent::setUp();
 
-    $this->activityTrackerService = $this->createMock(ActivityTrackerService::class);
-    $this->hooks = new ActivityTrackerHooks($this->activityTrackerService);
+    $this->activityTrackerService = $this->createMock(UserActivityTrackerService::class);
+    $this->hooks = new UserActivityTrackerHooks($this->activityTrackerService);
   }
 
   /**
