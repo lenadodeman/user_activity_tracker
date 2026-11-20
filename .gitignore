@@ -1,0 +1,28 @@
+# Ignore dependencies
+vendor/
+node_modules/
+composer.lock
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Ignore build artifacts
+dist/
+build/
+.cache/
+
+# Ignore PHP Code Sniffer
+.phpcs-cache
+
+# Ignore Drupal
+web/
+drupal/
+
+# Local development files
+.env.local
+.env.*.local

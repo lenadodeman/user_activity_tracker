@@ -1,0 +1,30 @@
+{
+  "name": "drupal/user_activity_tracker",
+  "type": "drupal-module",
+  "description": "Logs selected user activities according to the actor's roles: authentication, entity changes, role and permission changes, files, and configuration operations.",
+  "keywords": [
+    "Drupal",
+    "Activity",
+    "Logging",
+    "Tracking",
+    "User Actions"
+  ],
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "ldodeman",
+      "role": "maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/user_activity_tracker/issues",
+    "source": "https://git.drupal.org/project/user_activity_tracker.git"
+  },
+  "homepage": "https://www.drupal.org/project/user_activity_tracker",
+  "require": {
+    "drupal/core": "^11.1"
+  },
+  "require-dev": {
+    "drupal/core-dev": "^11.1"
+  }
+}

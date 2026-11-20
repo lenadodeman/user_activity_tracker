@@ -1,0 +1,6 @@
+user_activity_tracker.admin_settings:
+  title: 'User Activity Tracker'
+  description: 'Configure activity tracking settings for roles.'
+  parent: system.admin_config_system
+  route_name: user_activity_tracker.admin_settings
+  weight: 10

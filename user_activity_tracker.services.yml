@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  logger.channel.user_activity_tracker:
+    parent: logger.channel_base
+    arguments: [ 'user_activity_tracker' ]
+
+  Drupal\user_activity_tracker\Service\ActivityTrackerService: ~
+
+  Drupal\user_activity_tracker\EventSubscriber\ConfigTrackSubscriber: ~

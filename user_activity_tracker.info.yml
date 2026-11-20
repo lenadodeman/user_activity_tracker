@@ -1,0 +1,10 @@
+name: User Activity Tracker
+type: module
+description: Provides activity tracking based on user roles.
+core_version_requirement: ^11.1
+interface translation project: user_activity_tracker
+interface translation server pattern: modules/custom/%project/translations/%project.%language.po
+package: Custom
+dependencies:
+  - drupal:user
+configure: user_activity_tracker.admin_settings

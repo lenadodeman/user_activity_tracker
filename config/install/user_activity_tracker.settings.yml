@@ -1,0 +1,4 @@
+dependencies:
+  module:
+    - user_activity_tracker
+track_role_actions: {}

@@ -1,0 +1,13 @@
+user_activity_tracker.settings:
+  type: config_object
+  label: 'User Activity Tracker Settings'
+  mapping:
+    track_role_actions:
+      type: sequence
+      label: 'Tracked Role Actions'
+      sequence:
+        type: sequence
+        label: 'Actions for Role'
+        sequence:
+          type: string
+          label: 'Action to Track'
